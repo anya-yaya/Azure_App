@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Message Board</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        form { margin-bottom: 20px; }
+        input, textarea { display: block; margin: 10px 0; padding: 8px; width: 300px; }
+        .message { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+<h1>Message Board</h1>
+
+<form method="POST">
+    <input type="text" name="username" placeholder="Your name" required>
+    <textarea name="content" placeholder="Write a message..." required></textarea>
+    <button type="submit">Post</button>
+</form>
+
+<h2>Messages</h2>
+
+{% for msg in messages %}
+    <div class="message">
+        <strong>{{ msg.username }}</strong>
+        <p>{{ msg.content }}</p>
+    </div>
+{% endfor %}
+
+</body>
+</html>
